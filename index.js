@@ -29,10 +29,6 @@ app.post('/', function(req, res) {
   });
 });
 
-var server = app.listen(app.get('port'), function () {
-  console.log('Node app is running on port', app.get('port'));
-});
-
 var processData = function(data) {
   return data.payload
     .filter(function(item) {
@@ -46,3 +42,7 @@ var processData = function(data) {
       };
     });
 };
+
+var server = app.listen(app.get('port'), function () {
+  console.log('Node app is running on port', app.get('port'));
+});
