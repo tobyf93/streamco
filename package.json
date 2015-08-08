@@ -1,0 +1,21 @@
+{
+  "name": "streamco",
+  "version": "1.0.0",
+  "description": "Coding challenge for Stan.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Node.js",
+    "Express.js",
+    "JSON"
+  ],
+  "author": "Toby Flemming",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "express": "^4.13.3",
+    "morgan": "^1.6.1"
+  }
+}
