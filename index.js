@@ -1,30 +1,34 @@
 var express = require('express');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
+
 var app = express();
+app.set('port', (process.env.PORT || 3000));
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
+app.use(function(req, res, next) {
+  if (Array.isArray(req.body.payload) === false) {
+    throw "invalidFormat";
+  }
+
+  next();
+});
+
 app.use(function(err, req, res, next) {
   res.send({
     error: "Could not decode request: JSON parsing failed"
   });
 });
 
-app.get('/', function (req, res) {
-  res.send('This is a test!');
-});
-
 app.post('/', function(req, res) {
-  resBody = processData(req.body);
-  res.send(resBody);
+  res.send({
+    response: processData(req.body)
+  });
 });
 
-var server = app.listen(3000, function () {
-  var host = server.address().address;
-  var port = server.address().port;
-
-  console.log('Example app listening at http://%s:%s', host, port);
+var server = app.listen(app.get('port'), function () {
+  console.log('Node app is running on port', app.get('port'));
 });
 
 var processData = function(data) {
