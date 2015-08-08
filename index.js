@@ -5,16 +5,19 @@ var app = express();
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
+app.use(function(err, req, res, next) {
+  res.send({
+    error: "Could not decode request: JSON parsing failed"
+  });
+});
 
 app.get('/', function (req, res) {
   res.send('This is a test!');
 });
 
 app.post('/', function(req, res) {
-  res.set('Content-Type', 'application/json');
-
   resBody = processData(req.body);
-  res.send(JSON.stringify(resBody));
+  res.send(resBody);
 });
 
 var server = app.listen(3000, function () {
