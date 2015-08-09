@@ -4,7 +4,7 @@
   "description": "Coding challenge for Stan.",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/jasmine-node --verbose spec"
+    "test": "./node_modules/.bin/jasmine-node --verbose --captureExceptions spec"
   },
   "keywords": [
     "Node.js",

@@ -72,6 +72,14 @@ describe('POST /', function() {
           done();
         });
       });
+
+      it('returns JSON with response key (array of 7 items)', function(done) {
+        request.post(reqOptions, function(err, res, body) {
+          expect(Array.isArray(body.response)).toBe(true);
+          expect(body.response.length).toBe(7);
+          done();
+        });
+      });
     });
   });
 });
