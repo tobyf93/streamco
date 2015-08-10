@@ -5,6 +5,20 @@ var bodyParser = require('body-parser');
 var app = express();
 app.set('port', (process.env.PORT || 3000));
 
+function processData(data) {
+  return data.payload
+    .filter(function(item) {
+      return item.drm === true && item.episodeCount > 0;
+    })
+    .map(function(item) {
+      return {
+        image: item.image.showImage,
+        slug: item.slug,
+        title: item.title
+      };
+    });
+}
+
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(function(req, res, next) {
@@ -29,20 +43,6 @@ app.post('/', function(req, res) {
   });
 });
 
-var processData = function(data) {
-  return data.payload
-    .filter(function(item) {
-      return item.drm === true && item.episodeCount > 0;
-    })
-    .map(function(item) {
-      return {
-        image: item.image.showImage,
-        slug: item.slug,
-        title: item.title
-      };
-    });
-};
-
-var server = app.listen(app.get('port'), function () {
+app.listen(app.get('port'), function () {
   console.log('Node app is running on port', app.get('port'));
 });
