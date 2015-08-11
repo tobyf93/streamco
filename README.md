@@ -7,5 +7,5 @@ A web server built with Node.js and Express, using Jasmine for Test Driven Devel
 - Launch the Node.js web server ```node index.js```
 - Start sending requests to ```http://localhost:3000/```
 
-# Running tests (optional)
+# Running tests
 - Run test suite ```npm test```
