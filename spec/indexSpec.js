@@ -53,7 +53,7 @@ describe('POST /', function() {
 
     describe('and in the correct format', function() {
       beforeEach(function() {
-        var correctJSON = fs.readFileSync(__dirname + '/correctJSON', {encoding: 'utf8'});
+        var correctJSON = fs.readFileSync(__dirname + '/expectedJSON', {encoding: 'utf8'});
         correctJSON = JSON.parse(correctJSON);
 
         reqOptions.json = correctJSON;
