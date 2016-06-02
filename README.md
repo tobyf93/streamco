@@ -1,11 +1,14 @@
 # Overview
-A web server built with Node.js and Express, using Jasmine for Test Driven Development.  The service accepts POST requests with JSON data to a single end-point (root path) and returns JSON responses.
+The following project was used as part of the interview process for a Streaming Media Service.  The task was to build a JSON-based web service that would accept a payload and return a reduced payload.  Web server built with Node.js and Express framework, using Jasmine for Test Driven Development.
+
+# Links
+- [Sample Request](../blob/master/LICENSE)
 
 # Usage
-- Clone the repo ```git clone https://github.com/tobyf93/streamco.git```
-- Install project dependencies ```npm install```
-- Launch the Node.js web server ```node index.js```
-- Start sending requests to ```http://localhost:3000/```
+- Clone the repo `git clone https://github.com/tobyf93/streamco.git`
+- Install project dependencies `npm install`
+- Launch the Node.js web server `node index.js`
+- Start sending requests to `http://localhost:3000/`
 
 # Running tests
-- Run test suite ```npm test```
+- Run test suite `npm test`
